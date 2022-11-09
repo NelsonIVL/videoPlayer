@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Movies proj</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,30 +11,89 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
+        #vistoR,
+        .card-text {
+            color: white;
+        }
+
+        #carouselId img {
+            max-width: 1366px;
+            max-height: 736px;
+        }
+
+        #sesionControl li {
+            margin-top: 10px;
+
+        }
+
         #collapsibleNavId li {
             margin-top: 10px;
         }
 
-        .container>img {
-            max-width: 100%;
+        #Recomendado>.card {
+            margin-left: 60px;
+            margin-top: 25px;
         }
 
-        #movieTitle{
-            color: white;
+        .card {
+            background-color: #303030;
+            border: 0;
+            text-align: center;
         }
 
-        .row > h3{
-            margin-left: 20px;
-            color: white;
+        .card-img-top {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
         }
+
+        table{
+            color:white;
+            font-size: larger;
+        }
+
+        th{
+            width:100px;
+        }
+
+        #director{
+            width:130px;
+        }
+
+        #genero{
+            width:300px;
+        }
+
+        .youtube-video-container {
+            padding-top: 56.25%;
+            height: 0px;
+            position: relative;
+        }
+
+        .youtube-video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #Description{
+            color:white;
+            font-size: larger;
+        }
+
+
     </style>
 </head>
 
 <body style="background-color: #303030;">
 
     <!-- NAVBAR PRINCIPAL  -->
-    <nav class="navbar navbar-expand-sm navbar-dark col-12" style="background-color: #4d4d4d;">
+    <nav class="navbar navbar-expand-sm navbar-dark col-12 mb-4" style="background-color: #4d4d4d;">
         <a class="navbar-brand" href="home.html">
             <h2>Movies Proj</h2>
         </a>
@@ -72,7 +131,7 @@
             <div class="container" style="max-width: 550px;">
 
             </div>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5" id="sesionControl">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-2" id="sesionControl">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <h6>Iniciar sesión</h6>
@@ -85,35 +144,80 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-5">
-                <input class="form-control mr-sm-2 input-group" type="text" placeholder="Search">
-                <a href="#"><i class="fa fa-search fa-lg" style="color:white;" aria-hidden="true"></i></a>
+                <!--a href="#"><i class="fa fa-search fa-lg" style="color:white;" aria-hidden="true"></i></a-->
+                <input class="form-control mr-sm-2 input-group" type="text" style="font-family:Arial, FontAwesome" placeholder="&#xF002 Search ">
             </form>
         </div>
     </nav>
+    <!-- ///////////////////// -->
+    
+    <!-- Detalle película-->  
 
+    <!-- Video+Info --> 
+    <div id="movieDisplay" class="container ml-5">
+        <div id="movieVid" class="youtube-video-container">
+        <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/JfVOs4VSpmA"> </iframe>
+        </div>
+        <div id = "movieName">
+        <h2 class="ml-0 mb-5 col-12 mt-3" style="color:white; font-size: 40px"> Spider-Man: No Way Home </h2>
+        </div>
+    </div>
+    
+    <!-- MovieInfo --> 
+    <div id="movieInfo" class="container ml-5">
+        <table>
+            <tr id="tabletitle">
+                <th>Director</th>
+                <th>Duración</th>
+                <th>Género</th>
+            </tr>
 
-    <div class="col ml-5 mt-5">
-        <div>
-           <img src="https://www.somagnews.com/wp-content/uploads/2019/10/f9-e1570561894330.jpeg" alt="El bromas"
-            class="rounded-float-left" id="imageMovie"> 
-        </div>
-        <div>
-            <div class="d-flex justify-content-start mt-4" id="movieTitle">
-                <h1 class="display-3" id="movieName">Movie Title</h1>
-            </div>
-        </div>
-        <div class="row" id="movieDetails">
-            <h3>Director</h3>
-            <h3>Duración</h3>
-            <h3>Genero</h3>
-        </div>
-        <div class="ml-2">
-            <p>asjdfñlajsdfñlkasjlñfkjasdlñfjñalsjflñkasjdfñljasñlfjasñldjkflñaskdjfñlaskjdfñlasjdflñajsñdlfjalskjfñasjlkd</p>
-        </div>
+            <tr id="movieData">
+                <td id="director">Jon Watts</td>
+                <td id="duracion">2h 28m</td>
+                <td id="genero"> Acción, Aventura </td>
+            </tr>
+        </table>
+
+    </div>
+    
+    <!-- Description -->
+    <div class="container mt-5 ml-5">
+        <p id="Description">
+            Con la identidad de Spider-Man ahora revelada, Peter recurre al Doctor Strange en busca de ayuda. 
+            Algo sale mal y el multiverso se convierte en la mayor amenaza. 
+            Ahora Peter debe descubrir qué significa realmente ser Spider-Man.
+        </p>
     </div>
 
 
+    <!--Recomendado List-->
+    <div class="container mt-5 ml-5" style="color:white">
+        <h3> Recomendado</h3>
 
+        <div class="row" id="Recomendado">
+            <div class="card" style="width: 15rem;">
+                <a href="pelicula.html"><img class="card-img-top" src="https://wallpapercave.com/wp/wp4606146.jpg"
+                        alt="Card image cap"></a>
+                <div class="card-body">
+                    <h4 class="card-text">Joker</h4>
+                </div>
+            </div>
+            <div class="card" style="width: 15rem;">
+                <a href="pelicula.html"><img class="card-img-top"
+                    src="https://images02.kaleidescape.com/transformed/covers/1134x1624s/392/39220705.jpg"
+                    alt="Card image cap"></a>
+                <div class="card-body">
+                    <h4 class="card-text">Climax</h4>
+                </div>
+            </div>
+            <!-- Más Cards-->
+
+        </div>
+
+
+    </div>
+    
 
 
     <!-- Optional JavaScript -->
