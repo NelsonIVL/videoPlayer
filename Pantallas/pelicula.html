@@ -133,12 +133,12 @@
             </div>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-2" id="sesionControl">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#login">
                         <h6>Iniciar sesión</h6>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registro">
                         <h6>Registrarse</h6>
                     </a>
                 </li>
@@ -217,6 +217,127 @@
 
 
     </div>
+
+    <!--Modales-->
+
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: #303030;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:white;">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;">
+                            <span aria-hidden="true">&times;</span>
+                        </button> 
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group">
+                          <label for="correo" style="color:white;">Email</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope " aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <input type="email" name="correo" id="correo" class="form-control" placeholder="Your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                            
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <label for="password" style="color:white;">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-key" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Your password">
+                            </div>
+                            
+                        </div>
+                        <div style="text-align:center; margin-top: 8%;">
+                            <button type="button" class="btn btn-success" style="width:80%; ">Login</button>
+                            <br>
+                            <div style="margin-top:5%;">
+                                <a href="#" data-target="#">forgot your password?</a>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="modal-footer">
+                        <div>
+                            <a style="color:white;"> don't have an account! </a><a href="#" data-toggle="modal" data-target="#registro">sign up here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: #303030;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:white;">Sign up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label style="color:white;">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user " aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                        </div>
+                        <br>
+                        <label style="color:white;">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope " aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <input type="email" name="correoRegistrado" id="correoRegistrado" class="form-control" placeholder="Your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                        </div>
+                        <br>
+                        <label style="color:white;">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="passwordRegistro" id="passwordRegistro" class="form-control" placeholder="Your password" minlength="6" inputmode="verbatim">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="passwordRegistro2" id="passwordRegistro2" class="form-control" placeholder="Confirm your password" minlength="6" inputmode="verbatim">
+                        </div>
+
+                    </form>
+                    <div class="mt-5 mb-3"  style="text-align:center;">
+                        <button type="button" class="btn btn-success" style="width:80%;">Sign up</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     
 
 
