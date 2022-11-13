@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Categorías</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #vistoR,
+        .card-text {
+            color: white;
+        }
+
+        #carouselId img {
+            max-width: 1366px;
+            max-height: 736px;
+        }
+
+        #sesionControl li {
+            margin-top: 10px;
+
+        }
+
+        #collapsibleNavId li {
+            margin-top: 10px;
+        }
+
+        #filaRecientes>.card {
+            margin-left: 80px;
+            margin-top: 25px;
+        }
+
+        .card {
+            text-align: center;
+            width: 500px;
+            height: 282px;
+        }
+
+        .card-body {
+            color: white;
+            
+        }
+
+        .card-img-top {
+            width: 500px;
+            height: 279px;
+            object-fit: cover;
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style="background-color: #303030;">
+
+
+    <!-- NAVBAR PRINCIPAL  -->
+    <nav class="navbar navbar-expand-sm navbar-dark col-12 mb-4" style="background-color: #4d4d4d;">
+        <a class="navbar-brand" href="home.html">
+            <h2>Movies Proj</h2>
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link mr-5 ml-5" href="#">
+                        <h5>Inicio</h5><span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-5 ml-5" href="#">
+                        <h5 style="color: white;">Series</h5>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-5 ml-5" href="#">
+                        <h5 style="color: white;">Películas</h5>
+                    </a>
+                </li>
+                <li class="nav-item dropdown mr-5 ml-5">
+                    <a class="nav-link dropdown-toggle" href="categorías.html" id="dropdownId" 
+                        aria-haspopup="true" aria-expanded="false" style="color: white;">Categorías</a>
+                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Terror</a>
+                        <a class="dropdown-item" href="#">Drama</a>
+                        <a class="dropdown-item" href="#">Comedia</a>
+                    </div> -->
+                </li>
+            </ul>
+            <div class="container" style="max-width: 550px;">
+
+            </div>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-2" id="sesionControl">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#login">
+                        <h6>Iniciar sesión</h6>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registro">
+                        <h6>Registrarse</h6>
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 mr-5">
+                <!--a href="#"><i class="fa fa-search fa-lg" style="color:white;" aria-hidden="true"></i></a-->
+                <input class="form-control mr-sm-2 input-group" type="text" style="font-family:Arial, FontAwesome" placeholder="&#xF002 Search ">
+            </form>
+        </div>
+    </nav>
+
+    <div class="d-flex justify-content-start ml-5 mt-5">
+        <h1 style="color: white;">Selecciona tu género favorito</h1>
+        <div class="btn-group ml-5">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" style="color: white;">
+              Categoría
+            </button>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+              <button class="dropdown-item" type="button">Drama</button>
+              <button class="dropdown-item" type="button">Suspenso</button>
+              <button class="dropdown-item" type="button">Terror</button>
+              <button class="dropdown-item" type="button">Comedia</button>
+              <button class="dropdown-item" type="button">Romántica</button>
+            </div>
+          </div>
+    </div>
+    
+    
+    <!-- Aquí empiezan a verse las películas según el género -->
+    <div class="row mt-5 ml-3 mr-3" id="mainList">
+        <div class="card ml-2 mb-5 mt-5">
+            <img src="http://mauvaisegraine-magazine.fr/wp-content/uploads/2018/10/affiche-climax-gaspar-noe.jpg"
+                class="card-img-top" alt="Card image cap">
+            <div class="card-body">
+                <h4>Climax</h4>
+                <h5>Gaspar Noé</h4>
+            </div>
+        </div>
+        <div class="card ml-2 mb-5 mt-5">
+            <img src="https://wallpapercave.com/wp/wp7249949.jpg"
+                class="card-img-top" alt="Card image cap">
+            <div class="card-body">
+                <h4>Scream</h4>
+                <h5>Wes Craven</h4>
+            </div>
+        </div>
+        <div class="card ml-2 mb-5 mt-5">
+            <img src="http://image.tmdb.org/t/p/original/twHJbKdaMYjbsDwpHzXzQlCLXvF.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4>Midsommar</h4>
+                <h5>Ari Aster</h4>
+            </div>
+        </div>
+        <div class="card ml-2 mb-5 mt-5">
+            <img src="https://www.netflix-nederland.nl/wp-content/uploads/2019/08/Hereditary-Netflix.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4>Hereditary</h4>
+                <h5>Ari Aster</h4>
+            </div>
+        </div>
+        <div class="card ml-2 mb-5 mt-5">
+            <img src="https://images.hungama.com/c/1/ead/ac3/4715822/4715822_1280x800.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4>Anabelle</h4>
+                <h5>Gaspar Noé</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
