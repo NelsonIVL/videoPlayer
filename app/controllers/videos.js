@@ -2,14 +2,15 @@
 
 class Video{
 
-    constructor(videoLink, title, director, duration, genre, description){
-        this.uuid = Videos.generateUuid(10); //POdemos quitarlo si vamos a guardarlos en una colección de Mongo
+    constructor(videoLink, title, director, duration, genre, description, imageUrl){
+        this.uuid = Video.generateUuid(10); //Podemos quitarlo si vamos a guardarlos en una colección de Mongo
         this.videoLink = videoLink;
         this.title = title;
         this.director = director;
         this.duration = duration; //En minutos
         this.genre = genre;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     get uuid(){
@@ -68,6 +69,14 @@ class Video{
         this._description = val;
     }
 
+    get imageUrl(){
+        return this._imageUrl;
+    }
+
+    set imageUrl(val){
+        this._imageUrl = val;
+    }
+
     static generateVideo(obj){
         let videoLink = obj.videoLink != undefined ? obj.videoLink : obj._videoLink;
         let title = obj.title != undefined ? obj.title : obj._title;
@@ -75,8 +84,9 @@ class Video{
         let duration = obj.duration != undefined ? obj.duration : obj._duration;
         let genre = obj.genre != undefined ? obj.genre : obj._genre;
         let description = obj.description != undefined ? obj.description : obj._description;
+        let imageUrl = obj.imageUrl != undefined ? obj.imageUrl : obj._imageUrl;
 
-        return new Video(videoLink, title, director, duration, genre, description);
+        return new Video(videoLink, title, director, duration, genre, description, imageUrl);
     }
 
     static generateUuid(len) {
