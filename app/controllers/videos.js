@@ -3,7 +3,7 @@
 class Video{
 
     constructor(videoLink, title, director, duration, genre, description, imageUrl){
-        this.uuid = Video.generateUuid(10); //Podemos quitarlo si vamos a guardarlos en una colección de Mongo
+        this._uuid = Video.generateUuid(10); //Podemos quitarlo si vamos a guardarlos en una colección de Mongo
         this.videoLink = videoLink;
         this.title = title;
         this.director = director;
