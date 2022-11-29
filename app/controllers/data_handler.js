@@ -2,89 +2,121 @@
 
 const fs = require('fs');
 
-const User = require('./user');
-const Video = require('./videos');
+const Users = require('./user');
+const Videos = require('./videos');
 
-let contentUsers = fs.readFileSync('./app/data/users.json');
-let contentVideos = fs.readFileSync('./app/data/videos.json');
+const Video = require('./../models/videos');
+const User = require('./../models/users');
+const {
+    restart
+} = require('nodemon');
 
-const videos = JSON.parse(contentVideos).map(Video.generateVideo);
-const users = JSON.parse(contentUsers).map(User.generateUser);
-
-function getUsers(){
-    return users;
+function getUsers(req, res) {
+    User.find({})
+        .then(users => res.status(200).json(users))
+        .catch(err => res.status(400).send(err));
 }
 
-function getUserById(uuid){
-    let index = users.findIndex(item => item.uuid == uuid);
-    return users[index];
+function createUser(req, res){
+    let newUser = User(req.body);
+
+    newUser.save()
+        .then(user => res.status(200).json(user))
+        .catch(err => res.status(400).send(err));
 }
 
-function updateUser(newUser, uuid){
-    if(users.find(item => item.uuid == uuid)){
-        let index = users.findIndex(item => item.uuid == uuid);
-        if(typeof(newUser) == 'string'){
-            let obj = JSON.parse(newUser);
-            users[index] = obj;
-            fs.writeFileSync('./../data/users.json',JSON.stringify(users));
-        }else{
-            users[index] = newUser;
-            fs.writeFileSync('./../data/users.json',JSON.stringify(users));
-        }
-    }else
-        return false;
+function getUserById(req, res) {
+    let id = req.params.id;
+    User.findOne({
+        _id: `${id}`
+    }).then(user => res.status(200).json(user));
 }
 
-function deleteUser(uuid){
+function updateUser(req, res) {
+    let newUser = req.body;
+    let id = req.params.id;
+
+    User.findOneAndUpdate({id: `${id}`},newUser,{new: true})
+        .then(user => {
+            res.type('text/plain; charset=utf-8');
+            res.send(`Movie with id ${id} was updated`);
+        });
+}
+
+function deleteUser(req, res) {
+    let id = req.params.id;
+
+    User.findByIdAndDelete(`${id}`)
+    .then(user => {
+        res.type('text/plain; charset=utf-8');
+        res.send(user != undefined ? `User with id: ${id} was deleted`:`No user with id: ${id} was found`);
+    }).catch(movie => res.status(400).send('Bad request'));
+}
+
+function getVideos(req, res) {
+    Video.find({})
+        .then(movies => res.status(200).json(movies))
+        .catch(err => res.status(400).send(err));
+}
+
+function getVideoByID(req, res) {
+    let id = req.params.id;
+    Video.findOne({
+        _id: `${id}`
+    }).then(movie => res.status(200).json(movie));
+}
+
+function createMovie(req, res) {
+    //Crea nueva película en la colección, falta revisar si existe
+
+    let newMovie = Video(req.body);
+    newMovie.save()
+        .then(movie => res.status(200).json(movie))
+        .catch(err => res.status(400).send(err));
+}
+
+// function getMovieByQuery(req, res) {
+//     let req = '';
+//     for (let i in query) {
+//         if (i == 'title') {
+//             req += i;
+//         }
+//     }
+// }
+
+
+function deleteVideoById(req, res) {
+    let id = req.params.id;
+
+    Video.findByIdAndDelete(`${id}`)
+    .then(movie => {
+        res.type('text/plain; charset=utf-8');
+        res.send(movie != undefined ? `Movie with id: ${id} was deleted`:`No movie with id: ${id} was found`);
+    }).catch(movie => res.status(400).send('Bad request'));
 
 }
 
-function getVideos(){
-    return videos;
+function updateVideo(req, res) {
+    let newVideo = req.body;
+    let id = req.params.id;
+
+    Video.findOneAndUpdate({id: `${id}`},newVideo,{new: true})
+        .then(movie => {
+            res.type('text/plain; charset=utf-8');
+            res.send(`Movie with id ${id} was updated`);
+        });
 }
-
-function getVideoByTitle(title){
-    let index = videos.findIndex(item => item.title == title);
-    return videos[index];
-}
-
-function getVideosByGenre(genre){
-    let filter = [];
-    
-    for(let i in  videos){
-        if(videos[i].genre.includes(genre))
-            filter.push(videos[i]);
-    }
-    return filter;
-}
-
-function getVideosByDirector(director){
-    let filter = [];
-    
-    for(let i in  videos){
-        if(videos[i].director.includes(director))
-            filter.push(videos[i]);
-    }
-    return filter;
-}
-
-function deleteVideo(uuid){
-
-}
-
-function updateVideo(newVideo, uuid){
-
-}
-
-
 
 //Para videos
 exports.getVideos = getVideos;
-exports.getVideoByTitle = getVideoByTitle;
-exports.getVideosByDirector = getVideosByDirector;
-exports.getVideosByGenre = getVideosByGenre;
+exports.getVideoByID = getVideoByID;
+exports.deleteVideoById = deleteVideoById;
+exports.createMovie = createMovie;
+exports.updateVideo = updateVideo;
 
 //Para usuarios
 exports.getUsers = getUsers;
 exports.getUserById = getUserById;
 exports.updateUser = updateUser;
+exports.createUser = createUser;
+exports.deleteUser = deleteUser;
