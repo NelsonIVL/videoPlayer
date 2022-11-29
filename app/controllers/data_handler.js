@@ -77,7 +77,7 @@ function createMovie(req, res) {
 
 // function getMovieByQuery(req, res) {
 //     let req = '';
-//     for (let i in query) {
+//     for (let i in query) {   //TODO: Implementar busqueda por query params
 //         if (i == 'title') {
 //             req += i;
 //         }
