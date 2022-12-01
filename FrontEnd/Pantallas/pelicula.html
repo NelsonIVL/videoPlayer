@@ -158,44 +158,44 @@
     <!-- ///////////////////// -->
     
     <!-- Detalle película-->  
-
-    <!-- Video+Info --> 
-    <div id="movieDisplay" class="container ml-5">
-        <div id="movieVid" class="youtube-video-container">
-        <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/JfVOs4VSpmA"> </iframe>
+    <div id="movieDetails">
+        <!-- Video+Info --> 
+        <div id="movieDisplay" class="container ml-5">
+            <div id="movieVid" class="youtube-video-container">
+            <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/JfVOs4VSpmA"> </iframe>
+            </div>
+            <div id = "movieName">
+            <h2 class="ml-0 mb-5 col-12 mt-3" style="color:white; font-size: 40px"> Spider-Man: No Way Home </h2>
+            </div>
         </div>
-        <div id = "movieName">
-        <h2 class="ml-0 mb-5 col-12 mt-3" style="color:white; font-size: 40px"> Spider-Man: No Way Home </h2>
+    
+        <!-- MovieInfo --> 
+        <div id="movieInfo" class="container ml-5">
+            <table>
+                <tr id="tabletitle">
+                    <th>Director</th>
+                    <th>Duración</th>
+                    <th>Género</th>
+                </tr>
+
+                <tr id="movieData">
+                    <td id="director">Jon Watts</td>
+                    <td id="duracion">2h 28m</td>
+                    <td id="genero"> Acción, Aventura </td>
+                </tr>
+            </table>
+
+        </div>
+        
+        <!-- Description -->
+        <div class="container mt-5 ml-5">
+            <p id="Description">
+                Con la identidad de Spider-Man ahora revelada, Peter recurre al Doctor Strange en busca de ayuda. 
+                Algo sale mal y el multiverso se convierte en la mayor amenaza. 
+                Ahora Peter debe descubrir qué significa realmente ser Spider-Man.
+            </p>
         </div>
     </div>
-    
-    <!-- MovieInfo --> 
-    <div id="movieInfo" class="container ml-5">
-        <table>
-            <tr id="tabletitle">
-                <th>Director</th>
-                <th>Duración</th>
-                <th>Género</th>
-            </tr>
-
-            <tr id="movieData">
-                <td id="director">Jon Watts</td>
-                <td id="duracion">2h 28m</td>
-                <td id="genero"> Acción, Aventura </td>
-            </tr>
-        </table>
-
-    </div>
-    
-    <!-- Description -->
-    <div class="container mt-5 ml-5">
-        <p id="Description">
-            Con la identidad de Spider-Man ahora revelada, Peter recurre al Doctor Strange en busca de ayuda. 
-            Algo sale mal y el multiverso se convierte en la mayor amenaza. 
-            Ahora Peter debe descubrir qué significa realmente ser Spider-Man.
-        </p>
-    </div>
-
 
     <!--Recomendado List-->
     <div class="container mt-5 ml-5" style="color:white">
@@ -512,6 +512,10 @@
 
 
     <!-- Optional JavaScript -->
+    <script src = "../utils/ajax_handler.js"></script>
+    <script src = "../utils/utils.js"></script>
+    <script src = "../utils/pelicula_utils.js"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
