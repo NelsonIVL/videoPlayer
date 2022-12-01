@@ -3,7 +3,7 @@ let catalogo = document.getElementById('filaCatalogo');
 function CardToHTML(video) {
     return ` 
         <div class="card ml-5" style="width: 18rem;">
-            <a href="pelicula.html"><img class="card-img-top" src="${video.imageUrl}"
+            <a onclick = "preloadMovie()"><img class="card-img-top" src="${video.imageUrl}"
                 alt="Card image cap" onclick= "loadID('${video._id}')"></a>
             <div class="card-body">
                 <h4 class="card-text">${video.title}</h4>

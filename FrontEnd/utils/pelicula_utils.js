@@ -1,5 +1,5 @@
 
-let productContainer = document.getElementById('movieDetails');
+
 
 function MovieToHTML(video) {
     return ` 
@@ -40,31 +40,21 @@ function MovieToHTML(video) {
     `
 }
 
-function productListToHTML(productList) {
-    console.log(productList);
-    productContainer.innerHTML = '<div class="row mb-2 mt-2">' + productList.map(productToHTML).join("\n") + '\n</div>';
+function videoToHTML(movieToDisp) {
+    let movieContainer = document.getElementById('movieDetails');
+    //console.log(movieToDisp);
+    movieContainer.innerHTML = '<div class="row mb-2 mt-2">' + MovieToHTML(movieToDisp) + '\n</div>';
 }
 
-
-function preloadShoppingCart(){
-
-    let cart = new ShoppingCart();
-    Object.assign(cart, readShoppingCart());
-    let priceSum = cart.calculateTotal();
-    console.log();
-    let prox = [];
-    for(let i = 0; i < cart._products.length; i++){
-        let prodDetail = productDetailsToHtml(cart._products[i], cart.productproxies[i]._amount);
-        //cargar prod
-        prox.push(prodDetail);
-        
-
-    }
-    summaryContainer.innerHTML = prox.join("\n");
-    
-    //cargar summary
-    totalContainer.innerHTML = priceSummaryToHtml();
-
-    priceContainer.innerHTML = `Total a pagar: $${priceSum}`;
-
+function preloadDetail(){
+    // let newVid = new VideoCarry();
+    // Object.assign(newVid, readMovieToDisp());
+    // let videoObj = JSON.parse(JSON.stringify(newVid));
+    // console.log("Objeto : "+videoObj);
+    let newVid = readMovieToDisp();
+    console.log(JSON.parse(newVid.video));
+    let obj = JSON.parse(newVid.video);
+    videoToHTML(obj);
 }
+
+preloadDetail();

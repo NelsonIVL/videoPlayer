@@ -20,16 +20,19 @@ function writeMovieToDisp(videos){
     sessionStorage.setItem('Videos', JSON.stringify(videos));
 }
 
-function updateVideo(){
-    let videos = readShoppingCart();
+function preloadMovie(){
+    let movieLoaded = new VideoCarry();
+    Object.assign(movieLoaded,readMovieToDisp());
 
-    loadCartProducts(videosURL + 'cart', cart, products =>{
-        cart._products = JSON.parse(products);
-        console.log(products);
-        writeShoppingCart(videos);
-
-        window.location.assign('pelicula.html');
-    }, err => console.log(err));
+    loadMovieFromPost(videosURL,movieLoaded._videoProxies,movie => {
+        console.log(movie);
+        let vid = new VideoCarry();
+        Object.assign(vid,readMovieToDisp());
+        vid.video = movie;
+        writeMovieToDisp(vid);
+        window.location.href = 'pelicula.html';
+    },err=>console.log(err));
 }
+
 
 loadMovieToDisp();

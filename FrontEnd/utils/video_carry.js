@@ -19,6 +19,7 @@ class VideoCarry{
     
     constructor(){
         this.videoProxies = "";
+        this.video = {};
     }
     
     get videoProxies(){
@@ -28,4 +29,13 @@ class VideoCarry{
     set videoProxies(value){
         this._videoProxies = value;
     }
+
+    get vide(){
+        return this._video;
+    }
+
+    set vide(value){
+        this._video = value;
+    }
+
 }

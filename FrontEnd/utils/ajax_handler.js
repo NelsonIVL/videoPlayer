@@ -8,24 +8,24 @@ async function loadMovies(url) {
     return movies;
 }
 
-/*function loadCartProducts(url, productList, onSuccess, onError){
+function loadMovieFromPost(url, movieId, onSuccess, onError){
     let xhr = new XMLHttpRequest();
-
+    let arr = [];
+    arr.push(movieId);
+    console.log(JSON.stringify(arr));
     xhr.open('POST',url);
-    xhr.setRequestHeader('Content-Type','application/json');
-    //console.log(JSON.stringify(productList));
-    xhr.send(JSON.stringify(productList));
-    xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
-}*/
-
-function deleteMovie(url, onSuccess, onError) {
-    let xhr = new XMLHttpRequest();
-
-    xhr.open('DELETE', url);
-    xhr.send();
-    xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
+    xhr.setRequestHeader('Content-type','application/json');
+    xhr.send(JSON.stringify(arr));
+    xhr.onload = () => getXhrResponse(xhr, onSuccess,onError); 
 }
 
+// function deleteMovie(url, onSuccess, onError) {
+//     let xhr = new XMLHttpRequest();
+
+//     xhr.open('DELETE', url);
+//     xhr.send();
+//     xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
+// }
 
 function getXhrResponse(xhr, onSuccess, onError) {
     if (xhr.status == 200) {
