@@ -1,22 +1,22 @@
 "use strict";
 
+
 const videosURL = 'http://localhost:3000/movies';
 
-function initShoppingCart(){
+function loadMovieToDisp(){
     //console.log(sessionStorage.getItem('shoppingCart'));
     if(sessionStorage.getItem('Videos') == null){
-        let videos = new ShoppingCart();
-        writeShoppingCart(videos);
+        let video = new VideoCarry();
+        writeMovieToDisp(video);
     }
-
 }
 
-function readShoppingCart(){
+function readMovieToDisp(){
     let videos = sessionStorage.getItem('Videos');
     return JSON.parse(videos);
 }
 
-function writeShoppingCart(videos){
+function writeMovieToDisp(videos){
     sessionStorage.setItem('Videos', JSON.stringify(videos));
 }
 
@@ -29,8 +29,7 @@ function updateVideo(){
         writeShoppingCart(videos);
 
         window.location.assign('pelicula.html');
-    }, err => console.log(err))
-    
+    }, err => console.log(err));
 }
 
-initShoppingCart();
+loadMovieToDisp();
