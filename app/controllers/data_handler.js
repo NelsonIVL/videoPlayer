@@ -66,6 +66,13 @@ function getVideoByID(req, res) {
     }).then(movie => res.status(200).json(movie));
 }
 
+function getVideoPOST(req, res){
+    let id = req.body;
+    Video.findOne({
+        _id: `${id}`
+    }).then(movie => res.status(200).json(movie));
+}
+
 function createMovie(req, res) {
     //Crea nueva película en la colección, falta revisar si existe
 
@@ -113,6 +120,7 @@ exports.getVideoByID = getVideoByID;
 exports.deleteVideoById = deleteVideoById;
 exports.createMovie = createMovie;
 exports.updateVideo = updateVideo;
+exports.getVideoPOST = getVideoPOST;
 
 //Para usuarios
 exports.getUsers = getUsers;
