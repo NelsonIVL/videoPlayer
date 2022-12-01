@@ -24,6 +24,9 @@ let userSchema = mongoose.Schema({
     password:{
         type: String,
         required: true
+    },
+    paymentMethod:{
+        type: String,
     }
 });
 
