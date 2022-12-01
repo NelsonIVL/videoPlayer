@@ -71,18 +71,18 @@ function createMovie(req, res) {
 
     let newMovie = Video(req.body);
     newMovie.save()
-        .then(movie => res.status(200).json(movie))
+        .then(movie => res.status(200).send(`Película ${movie.title} creada`))
         .catch(err => res.status(400).send(err));
 }
 
-// function getMovieByQuery(req, res) {
-//     let req = '';
-//     for (let i in query) {   //TODO: Implementar busqueda por query params
-//         if (i == 'title') {
-//             req += i;
-//         }
-//     }
-// }
+function getMovieByQuery(req, res) {
+    let query = req.query.params;
+    for (let i in query) {   //TODO: Implementar busqueda por query params
+        if (i == 'title') {
+            req += i;
+        }
+    }
+}
 
 
 function deleteVideoById(req, res) {
