@@ -39,6 +39,18 @@ function MovieToHTML(video) {
         </div>
     `
 }
+function recommendedToHTML(video){
+    return ` 
+        <div class="card ml-5" style="width: 18rem;">
+            <a onclick = "preloadMovie()"><img class="card-img-top" src="${video.imageUrl}"
+                alt="Card image cap" onclick= "loadID('${video._id}')"></a>
+            <div class="card-body">
+                <h4 class="card-text">${video.title}</h4>
+            </div>
+        </div>
+    `
+}
+
 
 function videoToHTML(movieToDisp) {
     let movieContainer = document.getElementById('movieDetails');
@@ -46,15 +58,37 @@ function videoToHTML(movieToDisp) {
     movieContainer.innerHTML = '<div class="row mb-2 mt-2">' + MovieToHTML(movieToDisp) + '\n</div>';
 }
 
+function loadID(id){
+    let disp = readMovieToDisp();
+
+    let newMovie = Object.assign(new VideoCarry(),disp);
+    console.log(newMovie);
+    newMovie._videoProxies = id;
+
+    writeMovieToDisp(newMovie);
+}
+
 function preloadDetail(){
-    // let newVid = new VideoCarry();
-    // Object.assign(newVid, readMovieToDisp());
-    // let videoObj = JSON.parse(JSON.stringify(newVid));
-    // console.log("Objeto : "+videoObj);
     let newVid = readMovieToDisp();
     console.log(JSON.parse(newVid.video));
     let obj = JSON.parse(newVid.video);
     videoToHTML(obj);
 }
 
+function recToHTML(moviesList){
+    let recomendedContainer = document.getElementById('IdRecomendaciones');
+    recomendedContainer.innerHTML = '<div class="row mb-2 mt-2">' + moviesList.map(recommendedToHTML) + '\n</div>' ;
+
+}
+
 preloadDetail();
+
+loadMovies(videosURL).then(videos => {
+    let start = Math.floor(Math.random() * 12)+1;
+    let finish = Math.floor(Math.random() * 12);
+
+    if(finish>=start){
+        recToHTML(videos.slice(finish,start));
+    }
+    recToHTML(videos.slice(start,finish));
+});
