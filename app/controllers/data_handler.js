@@ -17,7 +17,7 @@ function getUsers(req, res) {
         .catch(err => res.status(400).send(err));
 }
 
-function createUser(req, res){
+function createUser(req, res) {
     let newUser = User(req.body);
 
     newUser.save()
@@ -36,7 +36,11 @@ function updateUser(req, res) {
     let newUser = req.body;
     let id = req.params.id;
 
-    User.findOneAndUpdate({id: `${id}`},newUser,{new: true})
+    User.findOneAndUpdate({
+            id: `${id}`
+        }, newUser, {
+            new: true
+        })
         .then(user => {
             res.type('text/plain; charset=utf-8');
             res.send(`Movie with id ${id} was updated`);
@@ -47,16 +51,27 @@ function deleteUser(req, res) {
     let id = req.params.id;
 
     User.findByIdAndDelete(`${id}`)
-    .then(user => {
-        res.type('text/plain; charset=utf-8');
-        res.send(user != undefined ? `User with id: ${id} was deleted`:`No user with id: ${id} was found`);
-    }).catch(movie => res.status(400).send('Bad request'));
+        .then(user => {
+            res.type('text/plain; charset=utf-8');
+            res.send(user != undefined ? `User with id: ${id} was deleted` : `No user with id: ${id} was found`);
+        }).catch(movie => res.status(400).send('Bad request'));
 }
 
 function getVideos(req, res) {
+    //console.log(req.query);
+
     Video.find({})
         .then(movies => res.status(200).json(movies))
         .catch(err => res.status(400).send(err));
+    
+    
+}
+
+function getVideoByGenre(req, res){
+    let genre = req.query.genre;
+        Video.find({
+            genre: `${genre}`
+        }).then(movies => res.status(200).json(movies)).catch(err => res.status(400).send(err));
 }
 
 function getVideoByID(req, res) {
@@ -66,7 +81,7 @@ function getVideoByID(req, res) {
     }).then(movie => res.status(200).json(movie));
 }
 
-function getVideoPOST(req, res){
+function getVideoPOST(req, res) {
     let id = req.body;
     Video.findOne({
         _id: `${id}`
@@ -82,24 +97,21 @@ function createMovie(req, res) {
         .catch(err => res.status(400).send(err));
 }
 
-function getMovieByQuery(req, res) {
-    let query = req.query.params;
-    for (let i in query) {   //TODO: Implementar busqueda por query params
-        if (i == 'title') {
-            req += i;
-        }
-    }
-}
+// function getMovieByGenre(req, res) {
+//     let genre = req.params.genre
+
+//     Video.find({genre:`${genre}`}).then(movies => res.status(200).json);
+// }
 
 
 function deleteVideoById(req, res) {
     let id = req.params.id;
 
     Video.findByIdAndDelete(`${id}`)
-    .then(movie => {
-        res.type('text/plain; charset=utf-8');
-        res.send(movie != undefined ? `Movie with id: ${id} was deleted`:`No movie with id: ${id} was found`);
-    }).catch(movie => res.status(400).send('Bad request'));
+        .then(movie => {
+            res.type('text/plain; charset=utf-8');
+            res.send(movie != undefined ? `Movie with id: ${id} was deleted` : `No movie with id: ${id} was found`);
+        }).catch(movie => res.status(400).send('Bad request'));
 
 }
 
@@ -107,7 +119,11 @@ function updateVideo(req, res) {
     let newVideo = req.body;
     let id = req.params.id;
 
-    Video.findOneAndUpdate({id: `${id}`},newVideo,{new: true})
+    Video.findOneAndUpdate({
+            id: `${id}`
+        }, newVideo, {
+            new: true
+        })
         .then(movie => {
             res.type('text/plain; charset=utf-8');
             res.send(`Movie with id ${id} was updated`);
@@ -121,6 +137,7 @@ exports.deleteVideoById = deleteVideoById;
 exports.createMovie = createMovie;
 exports.updateVideo = updateVideo;
 exports.getVideoPOST = getVideoPOST;
+exports.getVideoByGenre = getVideoByGenre;
 
 //Para usuarios
 exports.getUsers = getUsers;

@@ -19,13 +19,7 @@ function loadMovieFromPost(url, movieId, onSuccess, onError){
     xhr.onload = () => getXhrResponse(xhr, onSuccess,onError); 
 }
 
-// function deleteMovie(url, onSuccess, onError) {
-//     let xhr = new XMLHttpRequest();
 
-//     xhr.open('DELETE', url);
-//     xhr.send();
-//     xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
-// }
 
 function getXhrResponse(xhr, onSuccess, onError) {
     if (xhr.status == 200) {

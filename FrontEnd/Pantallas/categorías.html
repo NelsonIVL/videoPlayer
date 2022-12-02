@@ -114,11 +114,11 @@
               Categoría
             </button>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-              <button class="dropdown-item" type="button" value="DRAMA">Drama</button>
-              <button class="dropdown-item" type="button" value="ACCION">Acción</button>
-              <button class="dropdown-item" type="button" value="TERROR">Terror</button>
-              <button class="dropdown-item" type="button" value="COMEDIA">Comedia</button>
-              <button class="dropdown-item" type="button" value="ROMANCE">Romántica</button>
+              <button class="dropdown-item" type="button" value="DRAMA" onclick="preloadGenre('DRAMA')">Drama</button>
+              <button class="dropdown-item" type="button" value="ACCION" onclick="preloadGenre('ACCION')">Acción</button>
+              <button class="dropdown-item" type="button" value="TERROR" onclick="preloadGenre('TERROR')">Terror</button>
+              <button class="dropdown-item" type="button" value="COMEDIA" onclick="preloadGenre('COMEDIA')">Comedia</button>
+              <button class="dropdown-item" type="button" value="ROMANCE" onclick="preloadGenre('ROMANCE')">Romántica</button>
             </div>
           </div>
     </div>
@@ -479,6 +479,12 @@
     </div>
 
     <!-- Optional JavaScript -->
+    <script src = "../utils/videos.js"></script>
+    <script src = "../utils/utils.js"></script>
+    <script src = "../utils/ajax_handler.js"></script>
+    <script src = "../utils/genre_utils.js"></script>
+    
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
