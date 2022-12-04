@@ -19,6 +19,15 @@ function loadMovieFromPost(url, movieId, onSuccess, onError){
     xhr.onload = () => getXhrResponse(xhr, onSuccess,onError); 
 }
 
+function createUser(url, user, onSuccess, onError){
+    let xhr = new XMLHttpRequest();
+    console.log(user);
+    xhr.open('POST',url);
+    xhr.setRequestHeader('Content-type','application/json');
+    xhr.send(JSON.stringify(user));
+    xhr.onload = () => getXhrResponse(xhr, onSuccess,onError); 
+}
+
 
 
 function getXhrResponse(xhr, onSuccess, onError) {

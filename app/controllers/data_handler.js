@@ -18,6 +18,7 @@ function getUsers(req, res) {
 }
 
 function createUser(req, res) {
+    console.log(req.body);
     let newUser = User(req.body);
 
     newUser.save()
@@ -90,7 +91,7 @@ function getVideoPOST(req, res) {
 
 function createMovie(req, res) {
     //Crea nueva película en la colección, falta revisar si existe
-
+    console.log(req.body);
     let newMovie = Video(req.body);
     newMovie.save()
         .then(movie => res.status(200).send(`Película ${movie.title} creada`))

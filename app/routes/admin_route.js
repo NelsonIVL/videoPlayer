@@ -15,7 +15,8 @@ router.route('/movies/:id')
 
 //OPERACIONES DE ADMIN PARA USUARIOS
 router.route('/users')
-    .get((req,res) => dataHandler.getUsers(req,res));
+    .get((req,res) => dataHandler.getUsers(req,res))
+    .post((req,res) => dataHandler.createUser(req,res));
 
 router.route('/users/:id')
     .delete((req, res) => dataHandler.deleteUser(req,res))
